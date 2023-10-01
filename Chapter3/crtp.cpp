@@ -5,12 +5,18 @@ public:
   virtual void placeOrder() {
     printf("RuntimeExample::placeOrder()\n");
   }
+  virtual void sellStock() {
+    printf("RuntimeExample::sellStock()\n");
+  }
 };
 
 class SpecificRuntimeExample : public RuntimeExample {
 public:
   void placeOrder() override {
     printf("SpecificRuntimeExample::placeOrder()\n");
+  }
+  void sellStock() override {
+    printf("SpecificRuntimeExample::sellStock()\n");
   }
 };
 
@@ -36,6 +42,7 @@ public:
 int main(int, char **) {
   RuntimeExample *runtime_example = new SpecificRuntimeExample();
   runtime_example->placeOrder();
+  runtime_example->sellStock();
 
   CRTPExample <SpecificCRTPExample> crtp_example;
   crtp_example.placeOrder();
