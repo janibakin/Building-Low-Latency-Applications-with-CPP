@@ -23,6 +23,8 @@ int main(int, char **) {
   std::cout << "main waiting for threads to be done." << std::endl;
   t1->join();
   t2->join();
+  delete t1;
+  delete t2;
   std::cout << "main exiting." << std::endl;
 
   return 0;
